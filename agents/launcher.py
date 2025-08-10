@@ -634,9 +634,11 @@ users_db: Dict[str, Dict[str, Any]] = {
 }
 
 # You can add additional URLs to this list, for example, the frontend's production domain, or other frontends.
-allowed_origins = [
-    "http://localhost:5173"
-]
+# allowed_origins = [
+#     "http://localhost:5173"
+# ]
+
+allowed_origins = ["http://localhost:5173","http://3.90.108.184","http://3.90.108.184:5173"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -1082,64 +1084,6 @@ from fastapi.responses import StreamingResponse
 from fastapi import Request
 import subprocess, re, socket, asyncio, json
 
-@api_router.get("/network/status", response_class=StreamingResponse)
-# def stream_network_status(request: Request):
-#     def get_ssid_linux():
-#         try:
-#             result = subprocess.check_output(["iwgetid", "-r"], text=True).strip()
-#             return result if result else "Unknown"
-#         except subprocess.CalledProcessError:
-#             return "Unknown"
-
-#     def get_latency(host="8.8.8.8"):
-#         try:
-#             output = subprocess.check_output(["ping", "-c", "1", host], stderr=subprocess.STDOUT, text=True)
-#             match = re.search(r'time=(\d+\.\d+)', output)
-#             if match:
-#                 return float(match.group(1))
-#         except subprocess.CalledProcessError:
-#             return None
-
-#     def is_reachable(host, port=443, timeout=2):  # Default to HTTPS
-#         try:
-#             socket.setdefaulttimeout(timeout)
-#             with socket.create_connection((host, port)):
-#                 return True
-#         except Exception:
-#             return False
-
-#     async def event_generator():
-#         while True:
-#             ssid = get_ssid_linux()
-#             latency = get_latency()
-
-#             backend_host = request.client.host or "127.0.0.1"
-#             backend_port = 5000
-#             backend_reachable = is_reachable(backend_host, backend_port)
-
-#             google_reachable = is_reachable("www.google.com", 443)
-#             github_reachable = is_reachable("github.com", 443)
-#             npm_reachable = is_reachable("registry.npmjs.org", 443)
-
-#             data = {
-#                 "wifi_ssid": ssid,
-#                 "wifi_latency_ms": latency,
-#                 "backend": {
-#                     "host": backend_host,
-#                     "port": backend_port,
-#                     "reachable": backend_reachable
-#                 },
-#                 "external_services": {
-#                     "google.com": google_reachable,
-#                     "github.com": github_reachable,
-#                     "npm_registry": npm_reachable
-#                 }
-#             }
-
-#             yield f"data: {json.dumps(data)}\n\n"
-#             await asyncio.sleep(3)
-
-#     return StreamingResponse(event_generator(), media_type="text/event-stream")
 
 @api_router.get("/network/status", response_class=StreamingResponse)
 def stream_network_status(request: Request):
