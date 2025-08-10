@@ -64,11 +64,12 @@ export const FixPage: React.FC = () => {
       '[MONITOR STOPPED] Refer to the cards below in the CI/CD Pipeline Components section for detailed information.',
       ''
     ]);
+    await manualRefresh();
   };
 
   
 
-  const handleClearTerminal = () => {
+  const handleClearTerminal = async () => {
     setTerminalContent([]);
     setShowTerminal(false);
 
@@ -76,7 +77,11 @@ export const FixPage: React.FC = () => {
       eventSource.close();
       setEventSource(null);
     }
+    await manualRefresh();
   };
+  
+  
+
 
   const handleTriggerFix = async (filePath: string, errorIndex: number) => {
     const success = await triggerFix(filePath, errorIndex);

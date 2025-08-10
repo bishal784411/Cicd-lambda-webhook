@@ -32,7 +32,7 @@
 #                     return json.load(f)
 #             return []
 #         except Exception as e:
-#             print(f"❌ Error loading log: {e}")
+#             print(f" Error loading log: {e}")
 #             return []
 
 #     def generate_solution(self, file_path, file_content, errors):
@@ -92,11 +92,11 @@
 #                 if 'candidates' in result and len(result['candidates']) > 0:
 #                     return result['candidates'][0]['content']['parts'][0]['text']
 #             else:
-#                 print(f"❌ API Error: {response.status_code} - {response.text}")
+#                 print(f" API Error: {response.status_code} - {response.text}")
 #         except Exception as e:
-#             print(f"❌ Error calling Gemini API: {e}")
+#             print(f" Error calling Gemini API: {e}")
         
-#         return "❌ Failed to generate solution"
+#         return " Failed to generate solution"
 
 #     def parse_solution(self, solution_text):
 #         corrected_code = ""
@@ -189,7 +189,7 @@
 #             print(f"📋 Backup created: {backup_path}")
 #             return str(backup_path)
 #         except Exception as e:
-#             print(f"❌ Failed to create backup: {e}")
+#             print(f" Failed to create backup: {e}")
 #             return None
 
 #     def update_process_log_with_solution(self, file_path, err_id, solution_id, available_solutions):
@@ -232,7 +232,7 @@
 #                 return False
 
 #         except Exception as e:
-#             print(f"❌ Error updating process_flow.json: {e}")
+#             print(f" Error updating process_flow.json: {e}")
 #             return False
 
 
@@ -314,7 +314,7 @@
 #             return True
 
 #         except Exception as e:
-#             print(f"❌ Error saving solution: {e}")
+#             print(f" Error saving solution: {e}")
 #             return False
 
 #     def save_solution_preview(self, file_path, solution_data):
@@ -332,13 +332,13 @@
 #             print(f"👀 Solution preview saved: {preview_path}")
 #             return str(preview_path)
 #         except Exception as e:
-#             print(f"❌ Failed to save preview: {e}")
+#             print(f" Failed to save preview: {e}")
 #             return None
 
 #     def process_single_error(self, error_entry):
 #         """Process a single error entry"""
 #         time.sleep(3)
-#         print(f"\n🔍 Processing error [{error_entry.get('err_id', 'N/A')}] in: {error_entry['file']}")
+#         print(f"\n  Processing error [{error_entry.get('err_id', 'N/A')}] in: {error_entry['file']}")
         
 #         try:
 #             # Read the original file
@@ -353,16 +353,16 @@
 #             )
             
 #             # Debug: Print the raw solution text
-#             print(f"🔍 Raw solution text length: {len(solution_text)}")
+#             print(f"  Raw solution text length: {len(solution_text)}")
             
 #             # Parse the solution
 #             solution_data = self.parse_solution(solution_text)
 #             solution_data['explanation'] = self.build_explanation_list(error_entry['errors'])
 
 #             # Debug: Check corrected code
-#             print(f"🔍 Corrected code length: {len(solution_data['corrected_code'])}")
+#             print(f"  Corrected code length: {len(solution_data['corrected_code'])}")
 #             if not solution_data['corrected_code']:
-#                 print("❌ Warning: Corrected code is empty!")
+#                 print(" Warning: Corrected code is empty!")
 #                 print(f"Raw solution text preview: {solution_text[:500]}...")
 
 #             # Save preview
@@ -373,11 +373,11 @@
 #                 print(f"✅ Saved solution for {error_entry.get('err_id', 'N/A')}. Preview: {preview_path}")
 #                 return True
 #             else:
-#                 print("❌ Failed to save solution")
+#                 print(" Failed to save solution")
 #                 return False
                 
 #         except Exception as e:
-#             print(f"❌ Error processing {error_entry['file']}: {e}")
+#             print(f" Error processing {error_entry['file']}: {e}")
 #             return False
 
 #     def process_errors(self):
@@ -425,7 +425,7 @@
 #                 break
         
 #         if not error_found:
-#             print(f"❌ Error with err_id={err_id} not found in error log.")
+#             print(f" Error with err_id={err_id} not found in error log.")
 
 #     def run(self, err_id=None):
 #         if err_id:
@@ -448,7 +448,7 @@
 #             err_id = sys.argv[2]
 #         agent.run(err_id)
 #     except Exception as e:
-#         print(f"❌ Failed to start: {e}")
+#         print(f" Failed to start: {e}")
 
 
 from datetime import datetime
@@ -474,8 +474,8 @@ class SolutionAgent:
         if not self.gemini_api_key:
             raise ValueError("GEMINI_API_KEY not found in environment variables")
 
-        print("🔧 Solution Agent initialized")
-        print("🤖 AI Model: Gemini 2.0 Flash")
+        print(" Solution Agent initialized")
+        print(" AI Model: Gemini 2.0 Flash")
         print("=" * 60)
 
     def calculate_model_confidence(self, solution_text, errors, file_content, corrected_code):
@@ -529,7 +529,7 @@ class SolutionAgent:
         
         final_confidence = min(total_confidence * type_modifier, 1.0)
         
-        print(f"🎯 Confidence calculation:")
+        print(f" Confidence calculation:")
         print(f"   • Solution completeness: {confidence_factors[0]:.3f}")
         print(f"   • Error coverage: {confidence_factors[1]:.3f}")
         print(f"   • Code quality: {confidence_factors[2]:.3f}")
@@ -671,7 +671,7 @@ class SolutionAgent:
                     return json.load(f)
             return []
         except Exception as e:
-            print(f"❌ Error loading log: {e}")
+            print(f" Error loading log: {e}")
             return []
 
     def generate_solution(self, file_path, file_content, errors):
@@ -730,11 +730,11 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
                 if 'candidates' in result and len(result['candidates']) > 0:
                     return result['candidates'][0]['content']['parts'][0]['text']
             else:
-                print(f"❌ API Error: {response.status_code} - {response.text}")
+                print(f" API Error: {response.status_code} - {response.text}")
         except Exception as e:
-            print(f"❌ Error calling Gemini API: {e}")
+            print(f" Error calling Gemini API: {e}")
         
-        return "❌ Failed to generate solution"
+        return " Failed to generate solution"
 
     def parse_solution(self, solution_text, errors, file_content):
         corrected_code = ""
@@ -828,16 +828,16 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
             with open(backup_path, 'w', encoding='utf-8') as backup:
                 backup.write(content)
 
-            print(f"📋 Backup created: {backup_path}")
+            print(f" Backup created: {backup_path}")
             return str(backup_path)
         except Exception as e:
-            print(f"❌ Failed to create backup: {e}")
+            print(f" Failed to create backup: {e}")
             return None
 
     def update_process_log_with_solution(self, file_path, err_id, solution_id, available_solutions):
         try:
             if not os.path.exists('process_flow.json'):
-                print("⚠️ process_flow.json not found.")
+                print("process_flow.json not found.")
                 return False
 
             with open('process_flow.json', 'r') as f:
@@ -867,14 +867,14 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
             if matched:
                 with open('process_flow.json', 'w') as f:
                     json.dump(process_log, f, indent=2)
-                print(f"📝 process_flow.json updated with solution_id: {solution_id}")
+                print(f" process_flow.json updated with solution_id: {solution_id}")
                 return True
             else:
-                print("⚠️ No matching entry found in process_flow.json for err_id:", err_id)
+                print(" No matching entry found in process_flow.json for err_id:", err_id)
                 return False
 
         except Exception as e:
-            print(f"❌ Error updating process_flow.json: {e}")
+            print(f" Error updating process_flow.json: {e}")
             return False
 
     def save_solution(self, file_path, solution_data, errors, original_code, error_entry):
@@ -942,7 +942,7 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
             solutions.append(solution_entry)
             with open('solutions.json', 'w') as f:
                 json.dump(solutions, f, indent=2)
-            print("💾 Solution saved to 'solutions.json' in full structure")
+            print("Solution saved to 'solutions.json' in full structure")
 
             # ✅ Update process_flow.json using a separate method
             self.update_process_log_with_solution(
@@ -955,7 +955,7 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
             return True
 
         except Exception as e:
-            print(f"❌ Error saving solution: {e}")
+            print(f" Error saving solution: {e}")
             return False
 
     def save_solution_preview(self, file_path, solution_data):
@@ -970,16 +970,16 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
             with open(preview_path, 'w', encoding='utf-8') as preview:
                 preview.write(solution_data['corrected_code'])
 
-            print(f"👀 Solution preview saved: {preview_path}")
+            print(f" Solution preview saved: {preview_path}")
             return str(preview_path)
         except Exception as e:
-            print(f"❌ Failed to save preview: {e}")
+            print(f" Failed to save preview: {e}")
             return None
 
     def process_single_error(self, error_entry):
         """Process a single error entry"""
         time.sleep(3)
-        print(f"\n🔍 Processing error [{error_entry.get('err_id', 'N/A')}] in: {error_entry['file']}")
+        print(f"\n  Processing error [{error_entry.get('err_id', 'N/A')}] in: {error_entry['file']}")
         
         try:
             # Read the original file
@@ -994,16 +994,16 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
             )
             
             # Debug: Print the raw solution text
-            print(f"🔍 Raw solution text length: {len(solution_text)}")
+            print(f"  Raw solution text length: {len(solution_text)}")
             
             # Parse the solution with dynamic confidence calculation
             solution_data = self.parse_solution(solution_text, error_entry['errors'], original_content)
             solution_data['explanation'] = self.build_explanation_list(error_entry['errors'])
 
             # Debug: Check corrected code
-            print(f"🔍 Corrected code length: {len(solution_data['corrected_code'])}")
+            print(f"  Corrected code length: {len(solution_data['corrected_code'])}")
             if not solution_data['corrected_code']:
-                print("❌ Warning: Corrected code is empty!")
+                print(" Warning: Corrected code is empty!")
                 print(f"Raw solution text preview: {solution_text[:500]}...")
 
             # Save preview
@@ -1011,14 +1011,14 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
 
             # Save solution
             if self.save_solution(error_entry['file'], solution_data, error_entry['errors'], original_content, error_entry):
-                print(f"✅ Saved solution for {error_entry.get('err_id', 'N/A')}. Preview: {preview_path}")
+                print(f" Saved solution for {error_entry.get('err_id', 'N/A')}. Preview: {preview_path}")
                 return True
             else:
-                print("❌ Failed to save solution")
+                print(" Failed to save solution")
                 return False
                 
         except Exception as e:
-            print(f"❌ Error processing {error_entry['file']}: {e}")
+            print(f" Error processing {error_entry['file']}: {e}")
             return False
 
     def process_errors(self):
@@ -1048,9 +1048,9 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
                 error_found = True
                 
                 if error_entry['status'] != 'detected':
-                    print(f"⚠️  Error {err_id} has status '{error_entry['status']}' - processing anyway")
+                    print(f"  Error {err_id} has status '{error_entry['status']}' - processing anyway")
                 
-                print(f"🎯 Running SolutionAgent on specific error: {err_id}")
+                print(f" Running SolutionAgent on specific error: {err_id}")
                 
                 # Update status
                 error_entry['status'] = 'fixing'
@@ -1066,20 +1066,20 @@ time_estimate_fix: [Estimated time to fix the error by ai agent, e.g. "2 minutes
                 break
         
         if not error_found:
-            print(f"❌ Error with err_id={err_id} not found in error log.")
+            print(f" Error with err_id={err_id} not found in error log.")
 
     def run(self, err_id=None):
         if err_id:
             self.process_error_by_id(err_id)
         else:
-            print("🔄 Waiting for errors from Monitor Agent...")
+            print(" Waiting for errors from Monitor Agent...")
             try:
                 while True:
                     self.process_errors()
                     time.sleep(3)
             except KeyboardInterrupt:
-                print("\n🛑 Stopped by user")
-                print(f"🧾 Processed: {len(self.processed_errors)} entries")
+                print("\n Stopped by user")
+                print(f" Processed: {len(self.processed_errors)} entries")
 
 if __name__ == "__main__":
     try:
@@ -1089,4 +1089,4 @@ if __name__ == "__main__":
             err_id = sys.argv[2]
         agent.run(err_id)
     except Exception as e:
-        print(f"❌ Failed to start: {e}")
+        print(f" Failed to start: {e}")

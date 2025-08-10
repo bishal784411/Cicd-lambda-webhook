@@ -243,14 +243,7 @@ export const LoginPage: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Test Credentials Info */}
-                        <div className="bg-blue-500/20 border border-blue-500/50 rounded-lg p-3">
-                            <p className="text-blue-300 text-sm">
-                                <strong>Test Credentials:</strong><br />
-                                Email: test@example.com<br />
-                                Password: secret
-                            </p>
-                        </div>
+                      
 
                         {/* Error Message */}
                         {error && (

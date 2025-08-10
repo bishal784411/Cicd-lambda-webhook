@@ -88,7 +88,8 @@ export const MonitorPage: React.FC = () => {
   const {
     data,
     loading,
-    triggerFix
+    triggerFix,
+    manualRefresh
   } = useMonitoring(isMonitoring ? 3000 : 0); // Poll only when monitoring
 
   const priority: Record<string, number> = {
@@ -139,6 +140,7 @@ export const MonitorPage: React.FC = () => {
         '[MONITOR STOPPED] Refer to the cards below in the CI/CD Pipeline Components section for detailed information.',
         ''
       ]);
+      await manualRefresh();
     } catch (err) {
       console.error('Failed to stop monitor:', err);
     }
@@ -155,6 +157,8 @@ export const MonitorPage: React.FC = () => {
       logStreamRef.current.close();
       logStreamRef.current = null;
     }
+
+    await manualRefresh();
   };
 
   // Trigger a fix via your hook
