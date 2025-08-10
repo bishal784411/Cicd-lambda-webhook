@@ -1,0 +1,176 @@
+[
+  {
+    "id": "Pro-001",
+    "filename": "Hotel-demo\\index.html",
+    "error_type": "HTMLTagError",
+    "monitor": {
+      "error_id": "Err-001",
+      "status": "detected",
+      "time": "08:06:41 AM",
+      "error": "Missing <title> tag in head"
+    },
+    "Solution": {
+      "solution_id": "SOL-001",
+      "status": "analyzed",
+      "time": "08:07:32 AM",
+      "analysis": "The HTML document is missing a <title> tag, which is important for SEO and accessibility.  code : <title>Your Hotel Name</title> | This issue needs to be reviewed manually.  code : [Review required] | This issue needs to be reviewed manually.  code : [Review required]"
+    },
+    "Fix": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Awaiting solution analysis from the agent."
+    },
+    "Deploy": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Push from the respective fix page."
+    }
+  },
+  {
+    "id": "Pro-002",
+    "filename": "Hotel-demo\\index.html",
+    "error_type": "HTMLTagError",
+    "monitor": {
+      "error_id": "Err-001",
+      "status": "detected",
+      "time": "08:06:41 AM",
+      "error": "Unclosed tag: <html>"
+    },
+    "Solution": {
+      "solution_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Waiting for errors from Monitor Agent"
+    },
+    "Fix": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Awaiting solution analysis from the agent."
+    },
+    "Deploy": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Push from the respective fix page."
+    }
+  },
+  {
+    "id": "Pro-003",
+    "filename": "Hotel-demo\\index.html",
+    "error_type": "HTMLTagError",
+    "monitor": {
+      "error_id": "Err-001",
+      "status": "detected",
+      "time": "08:06:41 AM",
+      "error": "Unclosed tag: <body>"
+    },
+    "Solution": {
+      "solution_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Waiting for errors from Monitor Agent"
+    },
+    "Fix": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Awaiting solution analysis from the agent."
+    },
+    "Deploy": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Push from the respective fix page."
+    }
+  },
+  {
+    "id": "Pro-004",
+    "filename": "Hotel-demo\\index.html",
+    "error_type": "HTMLTagError",
+    "monitor": {
+      "error_id": "Err-002",
+      "status": "detected",
+      "time": "08:36:24 AM",
+      "error": "Missing <title> tag in head"
+    },
+    "Solution": {
+      "solution_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Waiting for errors from Monitor Agent"
+    },
+    "Fix": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Awaiting solution analysis from the agent."
+    },
+    "Deploy": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Push from the respective fix page."
+    }
+  },
+  {
+    "id": "Pro-005",
+    "filename": "Hotel-demo\\index.html",
+    "error_type": "HTMLTagError",
+    "monitor": {
+      "error_id": "Err-002",
+      "status": "detected",
+      "time": "08:36:24 AM",
+      "error": "Unclosed tag: <html>"
+    },
+    "Solution": {
+      "solution_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Waiting for errors from Monitor Agent"
+    },
+    "Fix": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Awaiting solution analysis from the agent."
+    },
+    "Deploy": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Push from the respective fix page."
+    }
+  },
+  {
+    "id": "Pro-006",
+    "filename": "Hotel-demo\\index.html",
+    "error_type": "HTMLTagError",
+    "monitor": {
+      "error_id": "Err-002",
+      "status": "detected",
+      "time": "08:36:24 AM",
+      "error": "Unclosed tag: <body>"
+    },
+    "Solution": {
+      "solution_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Waiting for errors from Monitor Agent"
+    },
+    "Fix": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Awaiting solution analysis from the agent."
+    },
+    "Deploy": {
+      "fix_id": "",
+      "status": "pending",
+      "time": "",
+      "analysis": "Push from the respective fix page."
+    }
+  }
+]
